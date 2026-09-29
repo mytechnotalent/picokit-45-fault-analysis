@@ -1,0 +1,68 @@
+{
+  "repo": "picokit-45-fault-analysis",
+  "eyebrow": "PICOKIT // LESSON 45",
+  "title": "PICOKIT // FAULT ANALYSIS",
+  "subtitle": "CONTROLLED FAULT + CFSR / SHCSR READ",
+  "accent": "#9AFF47",
+  "dim": "#5F9E2C",
+  "white": "#E5F6E5",
+  "cyan": "#7FD8E0",
+  "bg": "#0A1104",
+  "bg_edge": "#030501",
+  "icon": "bug",
+  "panel_status": "FAULT trapped  ·  CFSR 0x02000000  ·  f=0",
+  "chips": [
+    {
+      "label": "NODE",
+      "value": "45"
+    },
+    {
+      "label": "CFSR",
+      "value": "0xE000ED28"
+    },
+    {
+      "label": "SHCSR",
+      "value": "0xE000ED24"
+    },
+    {
+      "label": "RADIO",
+      "value": "-31 dBm"
+    }
+  ],
+  "terminal": [
+    "$ openocd -f interface/cmsis-dap.cfg -f target/rp2350.cfg",
+    "[*] node 00045  seq 1  HEARTBEAT  AEAD ok",
+    "[*] heartbeat body {\"n\":45,\"s\":1,\"f\":0}",
+    "[+] CCR.DIV_0_TRP set  UsageFault fires",
+    "[+] x/1xw 0xE000ED28  CFSR 0x02000000"
+  ],
+  "categories": [
+    "FAULT",
+    "CFSR",
+    "SWD",
+    "LINK"
+  ],
+  "cards": [
+    {
+      "tag": "FA-01",
+      "label": "cfsr",
+      "value": "ED28"
+    },
+    {
+      "tag": "FA-02",
+      "label": "shcsr",
+      "value": "ED24"
+    },
+    {
+      "tag": "FA-03",
+      "label": "fault",
+      "value": "f=0"
+    }
+  ],
+  "footer": [
+    "1 NODE  ·  1 GATEWAY  ·  2 WAY LORA  ·  NO PLAINTEXT",
+    "PICOKIT SERIES  ·  TRAP  ·  READ  ·  RADIO  ==[ FAULT ]=="
+  ],
+  "layout": "grid",
+  "stat": "45"
+}
